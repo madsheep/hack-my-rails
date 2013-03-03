@@ -5,7 +5,7 @@ class HacksController < ApplicationController
 
   def create
     hack = Hack.new(params[:url])
-
+    binding.pry
     if hack.url_valid?
       if hack.drop_mah_payload!
         flash.now[:notice] = "Aw right, done."
