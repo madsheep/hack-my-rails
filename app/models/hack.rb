@@ -6,7 +6,7 @@ class Hack
 
   def initialize(url)
     self.url = url
-    self.payload = File.read("#{Rails.root}/app/models/payload.rb")
+    self.payload = File.read("#{Rails.root}/payload.rb")
   end
 
   def url_valid?
