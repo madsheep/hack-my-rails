@@ -17,6 +17,7 @@ class Hack
     Timeout::timeout(5) {
       res  = exploit
       Rails.logger.info res.inspect
+      Rails.logger.info res.body.inspect
       res.code.to_s == "200"
     }
   rescue Timeout::Error
