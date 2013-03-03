@@ -15,9 +15,12 @@ class Hack
 
   def drop_mah_payload!
     Timeout::timeout(5) {
-      exploit.code.to_s == "200"
+      res  = exploit
+      Rails.logger.info res.inspect
+      res.code.to_s == "200"
     }
   rescue Timeout::Error
+    Rails.logger.info "TIMEOUT"
     false
   end
 
