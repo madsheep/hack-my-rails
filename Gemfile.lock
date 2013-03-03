@@ -221,7 +221,6 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass
   coffee-rails (~> 3.2.1)
-  dm-sqlite-adapter
   font-awesome-sass-rails
   haml
   jquery-rails
