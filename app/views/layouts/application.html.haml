@@ -1,0 +1,30 @@
+!!! 5
+%html(lang="en")
+  %head
+    %meta(charset="utf-8")
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    %link{href: 'http://fonts.googleapis.com/css?family=Source+Sans+Pro|Source+Code+Pro|Yanone+Kaffeesatz', rel: 'stylesheet', type: 'text/css'}
+    %title Own my rails please!
+    = csrf_meta_tags
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "application"
+
+  %body
+
+    .container.hakz
+      .row
+        - if flash.keys.size.zero?
+          %h1
+            %p Hack mah rails.
+            %small.quiet Please. Now.
+        - else
+          = render 'alerts'
+        %p My rails are here:
+        = form_tag hacks_path do
+          = text_field_tag "url", params[:url], class: 'input-xxlarge', placeholder: 'enter your rails application url...'
+          = button_tag type: 'submit', class: 'btn' do
+            %i.icon-gift.icon-spin
+            hack em naaaw!
+
+    %footer
+      By #{link_to 'madsheep', 'http://madsheep.pl' } from #{link_to 'netguru.co', 'http://netguru.co' }

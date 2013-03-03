@@ -1,0 +1,6 @@
+- if flash[:error]
+  %h1.red
+    = flash[:error]
+- if flash[:notice]
+  %h1.green
+    = flash[:notice]
