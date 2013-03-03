@@ -20,8 +20,12 @@ group :assets do
   gem 'font-awesome-sass-rails'
 
 end
-gem 'pry-rails'
 
+group :development do
+  gem "do_sqlite3"
+end
+
+gem 'pry-rails'
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
