@@ -10,7 +10,7 @@ class HacksController < ApplicationController
       if hack.drop_mah_payload!
         flash.now[:notice] = "Aw right, done."
       else
-        flash.now[:error] =  "Sorry can't do that. They've got it easy."
+        flash.now[:error] =  "Sorry can't do."
       end
     else
       flash.now[:error] =  "Invalid url..."
