@@ -6,6 +6,11 @@ gem 'rails', '3.2.12'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'haml'
+
+group :development, :test do
+  gem 'dm-sqlite-adapter'
+end
+
 gem 'ronin'
 
 # Gems used only for assets and not required
@@ -21,9 +26,7 @@ group :assets do
 
 end
 
-group :development do
-  gem "do_sqlite3"
-end
+
 
 gem 'pry-rails'
 gem 'jquery-rails'
