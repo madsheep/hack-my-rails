@@ -17,7 +17,7 @@ class Hack
     Timeout::timeout(5) {
       exploit.code.to_s == "200"
     }
-  rescue Timeout::Error, StandardError
+  rescue Timeout::Error
     false
   end
 
